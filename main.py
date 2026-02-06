@@ -1,3 +1,3 @@
 from database import engine
 
-print("Project setup complete. Engine created.")
+print("Day 2: Core basics tested. Run core_test.py for details.")
