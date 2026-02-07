@@ -66,3 +66,26 @@
 - Use server_default=func.now() for database-generated timestamps  
 - Column parameters like nullable=False and primary_key=True directly translate to SQL constraints  
 - In Core style, tables are plain objects – no classes or ORM mapping yet
+
+
+## Day 4: SQL Statements with Core
+
+### Features
+- Insert data into tables using Core
+- Select and fetch records
+- Update existing records
+- Delete records
+- Basic transaction management with begin()
+
+### Progress
+- Created crud_core.py with functions for insert, select, update, delete  
+- Demonstrated usage in main.py  
+- Used insert().values(), select(), update().where(), delete().where()  
+- Handled transactions with connection.begin()
+
+### Key Notes
+- All DML statements (insert/update/delete) are executed via connection.execute()  
+- where() is mandatory for update/delete to avoid affecting entire table  
+- result.lastrowid or returning() can retrieve auto-generated IDs  
+- Use with connection.begin() for automatic commit/rollback  
+- Core expression language is database-agnostic and prevents SQL injection
