@@ -43,3 +43,26 @@
 - In SQLAlchemy 2.0+, execute() is called on Connection, not Engine  
 - Use text() for raw SQL to prevent injection risks  
 - Engine manages dialect and connection pooling automatically
+
+
+## Day 3: Defining Schema with Core
+
+### Features
+- Defining database tables using Table and Column in Core style
+- Using MetaData to organize schema objects
+- Creating tables in SQLite via metadata.create_all()
+- Basic column constraints (primary key, nullable, default)
+
+### Progress
+- Created a central MetaData object  
+- Defined the "tasks" table with id, title, description, completed, created_at  
+- Added setup_tables.py script to create tables in the database  
+- Used modern column definitions with explicit types and constraints  
+
+### Key Notes
+- MetaData acts as a central registry for all tables and schema constructs  
+- Table(name, metadata, Column(...), ...) is the Core way to describe tables  
+- metadata.create_all(engine) creates missing tables safely (idempotent)  
+- Use server_default=func.now() for database-generated timestamps  
+- Column parameters like nullable=False and primary_key=True directly translate to SQL constraints  
+- In Core style, tables are plain objects – no classes or ORM mapping yet
