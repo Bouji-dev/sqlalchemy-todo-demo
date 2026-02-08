@@ -89,3 +89,20 @@
 - result.lastrowid or returning() can retrieve auto-generated IDs  
 - Use with connection.begin() for automatic commit/rollback  
 - Core expression language is database-agnostic and prevents SQL injection
+
+
+## Day 5: Datatypes
+
+### Features
+- Basic datatypes (Integer, String, Boolean, DateTime)
+- Advanced datatypes (Enum, JSON)
+- Dialect-specific behavior
+
+### Progress
+- Updated models_core.py with Enum for priority  
+- Tested insert/select with new datatype
+
+### Key Notes
+- Specify length for String to ensure portability  
+- Use Enum for restricted values  
+- DateTime with timezone for global apps

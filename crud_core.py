@@ -3,11 +3,11 @@ from database import engine
 from models_core import tasks
 
 
-def add_task(title, description=None):
+def add_task(title, description=None, priority='medium'):
     with engine.connect() as conn:
         with conn.begin():
             result = conn.execute(
-                insert(tasks).values(title=title, description=description)
+                insert(tasks).values(title=title, description=description, priority=priority)
             )
             conn.commit()
             return result.lastrowid
