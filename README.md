@@ -106,3 +106,24 @@
 - Specify length for String to ensure portability  
 - Use Enum for restricted values  
 - DateTime with timezone for global apps
+
+
+## Day 6: ORM Quick Start
+
+### Features
+- Defining models with DeclarativeBase
+- Using mapped_column() for type-safe columns
+- Creating tables with Base.metadata
+- Basic CRUD with Session
+
+### Progress
+- Created models_orm.py with Task model  
+- Added setup_orm_tables.py for table creation  
+- Introduced Session and basic add/query operations  
+
+### Key Notes
+- DeclarativeBase is the modern way in SQLAlchemy 2.0+  
+- mapped_column() provides better typing and validation  
+- Session manages transactions and object state  
+- Use session.commit() and session.refresh() for new objects  
+- Avoid mixing Core and ORM tables in the same metadata unless necessary

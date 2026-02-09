@@ -1,9 +1,14 @@
-from crud_core import add_task, list_tasks, mark_completed, delete_task
+from crud_orm import add_task, get_all_tasks
+from database import SessionLocal
 
-print("Day 5:")
+print("Day 6: ORM Quick Start")
 
-add_task('New task', priority='high')
-print(list_tasks())
+with SessionLocal() as session:
+    add_task(session, 'ORM Learning', 'So exciting')
+    
+    tasks = get_all_tasks(session)
+    for task in tasks:
+        print(f'ID: {task.id} | {task.title} | {task.completed}')
 
 
 

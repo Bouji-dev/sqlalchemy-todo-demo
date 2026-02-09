@@ -3,8 +3,17 @@ from sqlalchemy.orm import sessionmaker, DeclarativeBase
 
 
 engine = create_engine('sqlite:///todo.db', echo=True)
-metadata = MetaData()
-SessionLocal = sessionmaker(bind=engine)
 
+# for Core
+metadata = MetaData()
+
+# for ORM
+SessionLocal = sessionmaker(
+    bind=engine,
+    autocommit=False,
+    autoflush=False
+)
+
+# for ORM
 class Base(DeclarativeBase):
     pass
