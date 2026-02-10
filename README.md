@@ -127,3 +127,24 @@
 - Session manages transactions and object state  
 - Use session.commit() and session.refresh() for new objects  
 - Avoid mixing Core and ORM tables in the same metadata unless necessary
+
+
+## Day 7: Relationship Configuration
+
+### Features
+- One-to-Many relationship
+- back_populates and foreign key
+- Cascade options
+- Accessing related objects
+
+### Progress
+- Added User and Task models with relationship  
+- Implemented two-way relationship using back_populates  
+- Tested adding tasks to a user and loading them  
+
+### Key Notes
+- Foreign key is always placed on the Many side  
+- back_populates defines a bidirectional relationship in a clear and controlled way  
+- cascade="all, delete-orphan" automatically deletes dependent objects when parent is removed  
+- Lazy loading is the default; for better performance, use joined or selectin loading  
+- For Many-to-Many relationships, use an association table or secondary parameter
