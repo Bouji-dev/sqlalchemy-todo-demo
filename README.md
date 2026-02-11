@@ -148,3 +148,26 @@
 - cascade="all, delete-orphan" automatically deletes dependent objects when parent is removed  
 - Lazy loading is the default; for better performance, use joined or selectin loading  
 - For Many-to-Many relationships, use an association table or secondary parameter
+
+
+## Day 8: ORM Querying Guide (Advanced)
+
+### Features
+- Filtering with where() and complex conditions
+- Joining tables
+- Aggregation (count, sum, etc.) + group_by / having
+- Ordering, limit, offset
+- Subqueries
+
+### Progress
+- Learned modern select() syntax in SQLAlchemy 2.0+  
+- Implemented joins, aggregations, and subqueries  
+- Added advanced query examples in crud_orm.py  
+
+### Key Notes
+- Use select() instead of session.query() in 2.0+  
+- Combine conditions with and_(), or_(), or & | ~ operators  
+- Use joinedload() or selectinload() to avoid N+1 query problem  
+- func.count(), func.sum() for aggregations  
+- Subqueries are powerful for nested filtering  
+- Always use scalars() or execute() with select() for results

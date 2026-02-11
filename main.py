@@ -1,14 +1,15 @@
 from database import SessionLocal
-from crud_orm import create_user, add_task_to_user, get_user_with_tasks
+from crud_orm import get_users_with_min_tasks, get_tasks_for_user
 
-print("Day 7: Relationships in ORM")
+print("Day 8: Advanced ORM Querying")
 
 with SessionLocal() as session:
-    user = create_user(session, "sara")
-    add_task_to_user(session, user, "خرید", "شیر و نان")
-    add_task_to_user(session, user, "تمرین", "SQLAlchemy")
+    users = get_users_with_min_tasks(session)
+    print("Users with minimum 2 tasks: ")
+    for u in users:
+        print(u.username, len(u.tasks))
 
-    loaded_user = get_user_with_tasks(session, user.id)
-    print(f"کاربر: {loaded_user.username}")
-    for t in loaded_user.tasks:
-        print(f"  تسک: {t.title}")
+    tasks = get_tasks_for_user(session, 1)
+    print('\n User 1 tasks: ')
+    for t in tasks:
+        print(t.title)
