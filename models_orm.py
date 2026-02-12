@@ -1,4 +1,4 @@
-from sqlalchemy import String, Boolean, DateTime, func, ForeignKey, case
+from sqlalchemy import String, Boolean, DateTime, func, ForeignKey, case, Date
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.ext.hybrid import hybrid_property
 from database import Base
@@ -28,6 +28,7 @@ class Task(Base):
     # foreign key , relationship Many-to-one
     user_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
     user: Mapped["User"] = relationship('User', back_populates='tasks')
+    due_date: Mapped[Date | None] = mapped_column(Date)
 
 
     @hybrid_property
