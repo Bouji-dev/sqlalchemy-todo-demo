@@ -3,6 +3,23 @@ from sqlalchemy.orm import Session
 from models_orm import Task, User
 
 
+def create_user_with_tasks(session: Session, username: str, task_titles: list[str]):
+    try:
+        user = User(username=username)
+        session.add(user)
+        session.flush()
+
+        for title in task_titles:
+            task = Task(title=title, user=user)
+            session.add(task)
+        
+        session.commit()
+        return user
+    except Exception:
+        session.rollback()
+        raise
+
+
 def create_user(session: Session, username: str):
     user = User(username=username)
     session.add(user)

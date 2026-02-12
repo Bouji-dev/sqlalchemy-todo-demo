@@ -1,15 +1,17 @@
 from database import SessionLocal
-from crud_orm import get_users_with_min_tasks, get_tasks_for_user
+from crud_orm import create_user_with_tasks
 
-print("Day 8: Advanced ORM Querying")
+print("Day 9: Advanced Session & Transaction Management")
 
 with SessionLocal() as session:
-    users = get_users_with_min_tasks(session)
-    print("Users with minimum 2 tasks: ")
-    for u in users:
-        print(u.username, len(u.tasks))
+    try:
+        user = create_user_with_tasks(
+            session,
+            'Ehsan',
+            ['Study', 'Cooke', 'Play']
+        )
+        print(f'User : {user.username} with {len(user.tasks)} tasks created')
 
-    tasks = get_tasks_for_user(session, 1)
-    print('\n User 1 tasks: ')
-    for t in tasks:
-        print(t.title)
+    except Exception as e:
+        print(f'Error: {e}')
+

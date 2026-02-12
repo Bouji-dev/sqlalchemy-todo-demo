@@ -171,3 +171,27 @@
 - func.count(), func.sum() for aggregations  
 - Subqueries are powerful for nested filtering  
 - Always use scalars() or execute() with select() for results
+
+
+## Day 9: Using the ORM Session (Transactions & Advanced Management)
+
+### Features
+- Session as unit of work
+- Manual flush, commit, rollback
+- Transaction nesting with begin()
+- Error handling and rollback
+- flush() for intermediate persistence
+
+### Progress
+- Learned Session lifecycle and transaction control  
+- Added transaction-safe user/task creation  
+- Demonstrated flush() for ID generation  
+- Implemented try/except + rollback pattern  
+
+### Key Notes
+- Always use with SessionLocal() as session: for auto cleanup  
+- flush() sends changes to DB without committing (useful for IDs)  
+- commit() finalizes the transaction, rollback() cancels it  
+- autoflush=True (default) ensures consistency before queries  
+- Use session.begin() for explicit nested transactions  
+- Handle exceptions and always rollback on failure
