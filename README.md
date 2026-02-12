@@ -1,4 +1,63 @@
-### Simple yet powerful Todo List application developed to deeply learn SQLAlchemy (v2.0+). Features full CRUD operations, declarative mapping, session handling, and clean project structure using Python and SQLite. Ideal as a learning project or portfolio showcase for SQLAlchemy and database handling in Python.
+# SQLAlchemy Todo Demo
+
+A clean, console-based **Todo List** application built with **Python** and **SQLAlchemy 2.0+** (both Core & ORM layers).  
+
+This project was created as a structured, step-by-step learning journey to deeply understand SQLAlchemy — from basic setup to advanced ORM features, relationships, querying, transactions, migrations, and production best practices.
+
+Perfect for:
+- Developers learning SQLAlchemy in a practical way
+- Portfolio showcase for ORM & database handling skills
+- Reference for modern SQLAlchemy 2.0+ patterns
+
+
+## Learning Journey Summary
+
+| Day | Topic                              | Key Concepts & Files                          |
+|-----|------------------------------------|-----------------------------------------------|
+| 1   | Setup & Meaningful Names           | database.py, engine, sessionmaker             |
+| 2   | Core Basics                        | Engine, Connection, text() queries            |
+| 3   | Schema Definition (Core)           | Table, Column, MetaData, create_all           |
+| 4   | Core DML                           | insert, select, update, delete                |
+| 5   | Datatypes                          | String, Enum, DateTime, server_default        |
+| 6   | ORM Quick Start                    | DeclarativeBase, mapped_column, Session       |
+| 7   | Relationships                      | One-to-Many, back_populates, foreign key      |
+| 8   | Advanced Querying                  | select(), join, group_by, having, subquery    |
+| 9   | Session & Transactions             | flush, commit, rollback, context manager      |
+| 10  | Extensions & Best Practices        | hybrid_property, case(), eager loading        |
+| 11  | Migrations with Alembic            | alembic init, revision --autogenerate         |
+
+## Features Implemented
+
+- **Core Layer** (Days 1–5)
+  - Engine & Connection management
+  - Table / Column / MetaData definition
+  - Full CRUD with expression language
+  - Basic & advanced datatypes (Enum, DateTime, server_default, etc.)
+
+- **ORM Layer** (Days 6–11)
+  - Declarative models with `mapped_column()` & typing
+  - One-to-Many relationship (User ↔ Task)
+  - Advanced querying (filter, join, group_by, having, subquery)
+  - Session management, transactions, flush/commit/rollback
+  - Hybrid properties
+  - Migrations with **Alembic** (autogenerate + manual review)
+
+## Installation
+
+
+### 1. Clone the repository
+git clone https://github.com/Bouji-dev/sqlalchemy-todo-demo.git
+cd sqlalchemy-todo-demo
+
+### 2. Create and activate virtual environment (recommended)
+python -m venv .venv
+source .venv/bin/activate      # Linux/macOS
+### or
+.venv\Scripts\activate         # Windows
+
+### 3. Install dependencies
+pip install sqlalchemy alembic
+
 
 ## Day 1: SQLAlchemy Setup
 
