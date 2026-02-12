@@ -1,17 +1,11 @@
 from database import SessionLocal
-from crud_orm import create_user_with_tasks
+from crud_orm import get_pending_tasks
 
-print("Day 9: Advanced Session & Transaction Management")
+
+print("Day 10: Extensions & Best Practices")
 
 with SessionLocal() as session:
-    try:
-        user = create_user_with_tasks(
-            session,
-            'Ehsan',
-            ['Study', 'Cooke', 'Play']
-        )
-        print(f'User : {user.username} with {len(user.tasks)} tasks created')
-
-    except Exception as e:
-        print(f'Error: {e}')
-
+    pending = get_pending_tasks(session)
+    print(f"Number of Pending Tasks: {len(pending)}")
+    for t in pending:
+        print(t.title, t.status)

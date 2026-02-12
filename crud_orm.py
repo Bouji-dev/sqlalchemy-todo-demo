@@ -53,3 +53,7 @@ def get_users_with_min_tasks(session: Session, min_tasks: int = 2):
 def get_tasks_for_user(session: Session, user_id: int):
     stmt = select(Task).where(Task.user_id == user_id)    
     return session.scalars(stmt).all()
+
+
+def get_pending_tasks(session: Session):
+    return session.scalars(select(Task).where(Task.status == 'Pending')).all()

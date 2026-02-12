@@ -1,5 +1,6 @@
-from sqlalchemy import String, Boolean, DateTime, func, ForeignKey
+from sqlalchemy import String, Boolean, DateTime, func, ForeignKey, case
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.ext.hybrid import hybrid_property
 from database import Base
 
 
@@ -27,3 +28,15 @@ class Task(Base):
     # foreign key , relationship Many-to-one
     user_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
     user: Mapped["User"] = relationship('User', back_populates='tasks')
+
+
+    @hybrid_property
+    def status(self):
+        return "Done" if self.completed else "Pending"
+
+    @status.expression
+    def status(cls):
+        return case(
+        (cls.completed == True, "Done"),
+        else_="Pending"
+    )

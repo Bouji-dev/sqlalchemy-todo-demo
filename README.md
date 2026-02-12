@@ -195,3 +195,25 @@
 - autoflush=True (default) ensures consistency before queries  
 - Use session.begin() for explicit nested transactions  
 - Handle exceptions and always rollback on failure
+
+
+## Day 10: Configuration Extensions & Best Practices
+
+### Features
+- Hybrid properties
+- Association proxy (basic)
+- Automap for legacy databases
+- Advanced debugging and error handling
+
+### Progress
+- Added hybrid_property to Task model for readable status  
+- Implemented query using hybrid expression  
+- Reviewed best practices for production use  
+
+### Key Notes
+- hybrid_property allows computed attributes usable in queries  
+- Use @expression decorator for SQL-level computation  
+- Always set autocommit=False and autoflush=False on sessionmaker  
+- Use selectinload() / joinedload() to prevent N+1 queries  
+- Prefer Alembic for migrations instead of create_all() in production  
+- Handle common exceptions: NoResultFound, IntegrityError, DetachedInstanceError
